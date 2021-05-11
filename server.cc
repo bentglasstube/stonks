@@ -25,8 +25,8 @@ class GameServer : public Server {
       std::cerr << "Shutting down" << std::endl;
     }
 
-    void receive(Socket& client, const Packet& p) override {
-      std::istringstream input(reinterpret_cast<const char *>(p.data));
+    void receive(Socket& client, const std::string& p) override {
+      std::istringstream input(p);
       std::ostringstream output;
 
       std::string word, symbol;
